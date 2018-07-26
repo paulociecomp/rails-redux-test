@@ -52,5 +52,17 @@ class Item
         end
       end
     end
+
+    if @type ==  "Slice of bread"
+      if @days_remaining > 0
+        if @quality != 0
+          @quality = @quality - 1
+        end
+      else
+        if @quality != 0
+          @quality = @quality - 2
+        end
+      end
+    end
   end
 end

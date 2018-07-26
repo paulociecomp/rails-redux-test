@@ -11,7 +11,8 @@ const types = [
 	"Tomato",
 	"Grapefruit juice",
 	"Gold ring",
-	"Concert ticket"
+	"Concert ticket",
+	"Slice of bread"
 ];
 
 class AddItem extends Component {

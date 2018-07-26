@@ -11,16 +11,8 @@ export const addItem = (type, quality) => ({
 });
 
 export const tick = items => {
-	const token = document
-		.querySelector("meta[name='csrf-token']")
-		.getAttribute("content");
-
 	return fetch("/items/tick", {
 		method: "post",
-		headers: {
-			"X-CSRF-Token": token
-		},
-		credentials: "same-origin",
 		body: JSON.stringify({ items: items })
 	})
 		.then(response => {

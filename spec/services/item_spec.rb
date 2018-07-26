@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Item do
   context "Normal Item" do
     it "before sell date" do
-      item = Item.new(type: "Normal Item", days_remaining: 5, quality: 10)
+      item = Item.new(id:1, type: "Normal Item", days_remaining: 5, quality: 10)
 
       item.tick
 
@@ -11,7 +11,7 @@ RSpec.describe Item do
     end
 
     it "on sell date" do
-      item = Item.new(type: "Normal Item", days_remaining: 0, quality: 10)
+      item = Item.new(id:1, type: "Normal Item", days_remaining: 0, quality: 10)
 
       item.tick
 
@@ -19,7 +19,7 @@ RSpec.describe Item do
     end
 
     it "after sell date" do
-      item = Item.new(type: "Normal Item", days_remaining: -10, quality: 10)
+      item = Item.new(id:1, type: "Normal Item", days_remaining: -10, quality: 10)
 
       item.tick
 
@@ -27,7 +27,7 @@ RSpec.describe Item do
     end
 
     it "of zero quality" do
-      item = Item.new(type: "Normal Item", days_remaining: 5, quality: 0)
+      item = Item.new(id:1, type: "Normal Item", days_remaining: 5, quality: 0)
 
       item.tick
 
@@ -37,7 +37,7 @@ RSpec.describe Item do
 
   context "Gorgonzola cheese" do
     it "before sell date" do
-      item = Item.new(type: "Gorgonzola cheese", days_remaining: 5, quality: 10)
+      item = Item.new(id:1, type: "Gorgonzola cheese", days_remaining: 5, quality: 10)
 
       item.tick
 
@@ -45,7 +45,7 @@ RSpec.describe Item do
     end
 
     it "with max quality" do
-      item = Item.new(type: "Gorgonzola cheese", days_remaining: 5, quality: 50)
+      item = Item.new(id:1, type: "Gorgonzola cheese", days_remaining: 5, quality: 50)
 
       item.tick
 
@@ -53,7 +53,7 @@ RSpec.describe Item do
     end
 
     it "on sell date" do
-      item = Item.new(type: "Gorgonzola cheese", days_remaining: 0, quality: 10)
+      item = Item.new(id:1, type: "Gorgonzola cheese", days_remaining: 0, quality: 10)
 
       item.tick
 
@@ -61,7 +61,7 @@ RSpec.describe Item do
     end
 
     it "on sell date near max quality" do
-      item = Item.new(type: "Gorgonzola cheese", days_remaining: 0, quality: 49)
+      item = Item.new(id:1, type: "Gorgonzola cheese", days_remaining: 0, quality: 49)
 
       item.tick
 
@@ -69,7 +69,7 @@ RSpec.describe Item do
     end
 
     it "on sell date with max quality" do
-      item = Item.new(type: "Gorgonzola cheese", days_remaining: 0, quality: 50)
+      item = Item.new(id:1, type: "Gorgonzola cheese", days_remaining: 0, quality: 50)
 
       item.tick
 
@@ -77,7 +77,7 @@ RSpec.describe Item do
     end
 
     it "after sell date" do
-      item = Item.new(type: "Gorgonzola cheese", days_remaining: -10, quality: 10)
+      item = Item.new(id:1, type: "Gorgonzola cheese", days_remaining: -10, quality: 10)
 
       item.tick
 
@@ -85,7 +85,7 @@ RSpec.describe Item do
     end
 
     it "after sell date with max quality" do
-      item = Item.new(type: "Gorgonzola cheese", days_remaining: -10, quality: 50)
+      item = Item.new(id:1, type: "Gorgonzola cheese", days_remaining: -10, quality: 50)
 
       item.tick
 
@@ -95,7 +95,7 @@ RSpec.describe Item do
 
   context "Gold ring" do
     it "before sell date" do
-      item = Item.new(type: "Gold ring", days_remaining: 5, quality: 80)
+      item = Item.new(id:1, type: "Gold ring", days_remaining: 5, quality: 80)
 
       item.tick
 
@@ -103,7 +103,7 @@ RSpec.describe Item do
     end
 
     it "on sell date" do
-      item = Item.new(type: "Gold ring", days_remaining: 0, quality: 80)
+      item = Item.new(id:1, type: "Gold ring", days_remaining: 0, quality: 80)
 
       item.tick
 
@@ -111,7 +111,7 @@ RSpec.describe Item do
     end
 
     it "after sell date" do
-      item = Item.new(type: "Gold ring", days_remaining: -10, quality: 80)
+      item = Item.new(id:1, type: "Gold ring", days_remaining: -10, quality: 80)
 
       item.tick
 
@@ -121,7 +121,7 @@ RSpec.describe Item do
 
   context "Concert ticket" do
     it "long before sell date" do
-      item = Item.new(type: "Concert ticket", days_remaining: 11, quality: 10)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 11, quality: 10)
 
       item.tick
 
@@ -129,7 +129,7 @@ RSpec.describe Item do
     end
 
     it "long before sell date at max quality" do
-      item = Item.new(type: "Concert ticket", days_remaining: 11, quality: 50)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 11, quality: 50)
 
       item.tick
 
@@ -137,7 +137,7 @@ RSpec.describe Item do
     end
 
     it "medium close to sell date upper bound" do
-      item = Item.new(type: "Concert ticket", days_remaining: 10, quality: 10)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 10, quality: 10)
 
       item.tick
 
@@ -145,7 +145,7 @@ RSpec.describe Item do
     end
 
     it "medium close to sell date upper bound at max quality" do
-      item = Item.new(type: "Concert ticket", days_remaining: 10, quality: 50)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 10, quality: 50)
 
       item.tick
 
@@ -153,7 +153,7 @@ RSpec.describe Item do
     end
 
     it "medium close to sell date lower bound" do
-      item = Item.new(type: "Concert ticket", days_remaining: 6, quality: 10)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 6, quality: 10)
 
       item.tick
 
@@ -161,7 +161,7 @@ RSpec.describe Item do
     end
 
     it "medium close to sell date lower bound at max quality" do
-      item = Item.new(type: "Concert ticket", days_remaining: 6, quality: 50)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 6, quality: 50)
 
       item.tick
 
@@ -169,7 +169,7 @@ RSpec.describe Item do
     end
 
     it "very close to sell date upper bound" do
-      item = Item.new(type: "Concert ticket", days_remaining: 5, quality: 10)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 5, quality: 10)
 
       item.tick
 
@@ -177,7 +177,7 @@ RSpec.describe Item do
     end
 
     it "very close to sell date upper bound at max quality" do
-      item = Item.new(type: "Concert ticket", days_remaining: 5, quality: 50)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 5, quality: 50)
 
       item.tick
 
@@ -185,7 +185,7 @@ RSpec.describe Item do
     end
 
     it "very close to sell date lower bound" do
-      item = Item.new(type: "Concert ticket", days_remaining: 1, quality: 10)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 1, quality: 10)
 
       item.tick
 
@@ -193,7 +193,7 @@ RSpec.describe Item do
     end
 
     it "very close to sell date lower bound at max quality" do
-      item = Item.new(type: "Concert ticket", days_remaining: 1, quality: 50)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 1, quality: 50)
 
       item.tick
 
@@ -201,7 +201,7 @@ RSpec.describe Item do
     end
 
     it "on sell date" do
-      item = Item.new(type: "Concert ticket", days_remaining: 0, quality: 10)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: 0, quality: 10)
 
       item.tick
 
@@ -209,7 +209,7 @@ RSpec.describe Item do
     end
 
     it "after sell date" do
-      item = Item.new(type: "Concert ticket", days_remaining: -10, quality: 10)
+      item = Item.new(id:1, type: "Concert ticket", days_remaining: -10, quality: 10)
 
       item.tick
 
@@ -218,48 +218,48 @@ RSpec.describe Item do
   end
 
   context "Slice of bread" do
-    xit "before sell date" do
-      item = Item.new(type: "Slice of bread", days_remaining: 5, quality: 10)
+    it "before sell date" do
+      item = Item.new(id:1, type: "Slice of bread", days_remaining: 5, quality: 10)
 
       item.tick
 
       expect(item).to have_attributes(days_remaining: 4, quality: 8)
     end
 
-    xit "before sell date at zero quality" do
-      item = Item.new(type: "Slice of bread", days_remaining: 5, quality: 0)
+    it "before sell date at zero quality" do
+      item = Item.new(id:1, type: "Slice of bread", days_remaining: 5, quality: 0)
 
       item.tick
 
       expect(item).to have_attributes(days_remaining: 4, quality: 0)
     end
 
-    xit "on sell date" do
-      item = Item.new(type: "Slice of bread", days_remaining: 0, quality: 10)
+    it "on sell date" do
+      item = Item.new(id:1, type: "Slice of bread", days_remaining: 0, quality: 10)
 
       item.tick
 
       expect(item).to have_attributes(days_remaining: -1, quality: 6)
     end
 
-    xit "on sell date at zero quality" do
-      item = Item.new(type: "Slice of bread", days_remaining: 0, quality: 0)
+    it "on sell date at zero quality" do
+      item = Item.new(id:1, type: "Slice of bread", days_remaining: 0, quality: 0)
 
       item.tick
 
       expect(item).to have_attributes(days_remaining: -1, quality: 0)
     end
 
-    xit "after sell date" do
-      item = Item.new(type: "Slice of bread", days_remaining: -10, quality: 10)
+    it "after sell date" do
+      item = Item.new(id:1, type: "Slice of bread", days_remaining: -10, quality: 10)
 
       item.tick
 
       expect(item).to have_attributes(days_remaining: -11, quality: 6)
     end
 
-    xit "after sell date at zero quality" do
-      item = Item.new(type: "Slice of bread", days_remaining: -10, quality: 0)
+    it "after sell date at zero quality" do
+      item = Item.new(id:1, type: "Slice of bread", days_remaining: -10, quality: 0)
 
       item.tick
 
