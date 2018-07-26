@@ -2,7 +2,7 @@ import { items, daysElapsed } from "./reducers";
 import { tick, addItem } from "./actions";
 
 test("it ticks", () => {
-	expect(daysElapsed(0, tick())).toBe(1);
+	expect(daysElapsed(0, { type: "TICK" })).toBe(1);
 });
 
 test("it adds an item", () => {
