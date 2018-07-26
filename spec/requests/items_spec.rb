@@ -15,7 +15,7 @@ RSpec.describe ItemsController, type: :request do
   end
 
   it "tick items" do
-    items = [ { "type": "Normal Item", "days_remaining": 5, "quality": 10 } ]
+    items = [ { id: 1, "type": "Normal Item", "days_remaining": 5, "quality": 10 } ]
     post "/items/tick",
       params: { items: items }.to_json,
       headers: header

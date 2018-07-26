@@ -23,7 +23,7 @@ const render = (store, node) => {
 
 document.addEventListener("DOMContentLoaded", () => {
 	const initialState = {
-		items: [{ id: 1, type: "Gorgonzola Cheese", daysRemaining: 2, quality: 3 }]
+		items: [{ id: 1, type: "Gorgonzola Cheese", days_remaining: 2, quality: 3 }]
 	};
 
 	const middlewares = [later];

@@ -12,5 +12,5 @@ test("it adds an item", () => {
 	const item = state[0];
 	expect(item.type).toBe("New item");
 	expect(item.quality).toBe(99);
-	expect(item.daysRemaining).toBe(20);
+	expect(item.days_remaining).toBe(20);
 });

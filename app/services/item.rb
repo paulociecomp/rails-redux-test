@@ -1,7 +1,8 @@
 class Item
-  attr_reader :type, :days_remaining, :quality
+  attr_reader :id, :type, :days_remaining, :quality
 
-  def initialize(type:, days_remaining:, quality:)
+  def initialize(id:, type:, days_remaining:, quality:)
+    @id = id
     @type = type
     @days_remaining = days_remaining
     @quality = quality

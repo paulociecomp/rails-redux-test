@@ -14,6 +14,6 @@ class ItemsController < ApplicationController
   private
 
   def items_params
-    JSON.parse(request.raw_post, symbolize_names: true)[:items]
+    JSON.parse(request.raw_post, symbolize_names: true, underscore: true)[:items]
   end
 end
