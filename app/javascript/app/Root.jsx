@@ -4,7 +4,7 @@ import Items from "./Items";
 import AddItem from "./AddItem";
 import Ticker from "./Ticker";
 
-import { addItem, tick } from "./actions";
+import { addItem, tick, fetchTick } from "./actions";
 
 const Root = ({ store }) => {
 	const state = store.getState();
@@ -22,8 +22,8 @@ const Root = ({ store }) => {
 			<Ticker
 				_items={state.items}
 				onTick={items => {
-					tick(items).then(res => {
-						store.dispatch({ type: "TICK", items: res });
+					fetchTick(items).then(res => {
+						store.dispatch(tick(res));
 					});
 				}}
 			/>

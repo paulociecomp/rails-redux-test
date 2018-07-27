@@ -1,16 +1,6 @@
 let nextId = 2;
 
-export const addItem = (type, quality) => ({
-	type: "ADD_ITEM",
-	item: {
-		id: nextId++,
-		type,
-		quality,
-		days_remaining: 20
-	}
-});
-
-export const tick = items => {
+export const fetchTick = items => {
 	return fetch("/items/tick", {
 		method: "post",
 		body: JSON.stringify({ items: items })
@@ -22,3 +12,18 @@ export const tick = items => {
 			console.log(err);
 		});
 };
+
+export const addItem = (type, quality) => ({
+	type: "ADD_ITEM",
+	item: {
+		id: nextId++,
+		type,
+		quality,
+		days_remaining: 20
+	}
+});
+
+export const tick = items => ({
+	type: "TICK",
+	items: items
+});
