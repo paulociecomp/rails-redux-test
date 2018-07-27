@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  include ParamsParser
   protect_from_forgery except: :tick
 
   def tick
@@ -11,11 +12,5 @@ class ItemsController < ApplicationController
     end
 
     render json: items
-  end
-
-  private
-
-  def items_params
-    JSON.parse(request.raw_post, symbolize_names: true, underscore: true)[:items]
   end
 end
